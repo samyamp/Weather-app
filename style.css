@@ -1,6 +1,9 @@
 body {
     color: white !important;
     background-color: #20248d !important;
+    font-family: Inter, sans-serif;
+    font-size: 40px;
+
 
 }
 
@@ -48,3 +51,4 @@ body {
     border-radius: 10px;
     cursor: pointer;
 }
+
