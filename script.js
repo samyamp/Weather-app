@@ -1,18 +1,20 @@
-let  weatherKey = "05d3648c98ea595a77e6ec3702143b76";
-let place = "London"
-const weatherAPI = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=05d3648c98ea595a77e6ec3702143b76";
+const weatherKey = "05d3648c98ea595a77e6ec3702143b76";
+// http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=05d3648c98ea595a77e6ec3702143b76
 
-// Make a GET request
-fetch(weatherAPI)
+function get_temperature(location) {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${weatherKey}&units=metric`)
   .then(response => {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("get_temperature response not working");
     }
     return response.json();
   })
   .then(data => {
-    console.log(data);
+    console.log(data.main.temp);
   })
   .catch(error => {
-    console.error('Error:', error);
+    console.error('Error caught:', error);
   });
+}
+
+get_temperature("Bradford")
