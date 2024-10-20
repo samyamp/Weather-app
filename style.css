@@ -1,6 +1,6 @@
 body {
     color: white !important;
-    background-color: #20248d !important;
+    background-color: #021526 !important;
     font-family: Inter, sans-serif;
     font-size: 40px;
 
@@ -8,7 +8,7 @@ body {
 }
 
 ::placeholder {
-    color: rgba(255, 255, 255, 0.315);
+    color: rgb(0, 0, 0);
     font-family: Inter, sans-serif;
     text-align: center;
 }
@@ -16,7 +16,7 @@ body {
 .main{
     width:500px;
     height:840px;
-    background-color:#202020;
+    background-color:#03346E;
     text-align: center;
     padding: 10px 50px;
     margin:auto;
@@ -31,7 +31,7 @@ body {
 }
 
 .searchbar input{
-    background: rgba(14, 30, 126, 0.397);
+    background: #6EACDA;
     color: white;
     font-family: Inter, sans-serif;;
     font-size: 15px;
