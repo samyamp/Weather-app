@@ -1,6 +1,6 @@
 body {
     color: white !important;
-    background-color: #021526 !important;
+    background-color: #222831 !important;
     font-family: Inter, sans-serif;
     font-size: 40px;
 
@@ -16,7 +16,7 @@ body {
 .main{
     width:500px;
     height:840px;
-    background-color:#03346E;
+    background-color:#393E46;
     text-align: center;
     padding: 10px 50px;
     margin:auto;
@@ -31,7 +31,7 @@ body {
 }
 
 .searchbar input{
-    background: #6EACDA;
+    background: #00ADB5;
     color: white;
     font-family: Inter, sans-serif;;
     font-size: 15px;

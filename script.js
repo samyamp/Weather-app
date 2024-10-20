@@ -50,6 +50,8 @@ function get_wind(location) {
 }
 
 
-get_wind("Delhi")
+
+
+get_wind("London")
 get_humidity("Delhi")
 get_temperature("Delhi")
