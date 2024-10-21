@@ -82,11 +82,27 @@ input:focus::placeholder {
 }
 
 .info{ 
+    display: flex;
+    justify-content: space-around;
     align-items: center;
 }
 
-.info img{
-    margin: 0 50px;
+
+
+.infoItem img{
+    width: 60px;
+    height: auto;
 }
+
+.infoItem p{
+    margin: 5px 0 0;
+    font-size: 20px;
+}
+
+.info img{
+    margin: 0 30px;
+}
+
+
 
 
