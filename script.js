@@ -8,7 +8,7 @@ async function checkWeather(location){
   })
   .then(data => {
     document.querySelector(".name").innerHTML = data.name;
-    document.querySelector(".temperature").innerHTML= Math.trunc(data.main.temp) + "°C";
+    document.querySelector(".temperature").innerHTML= Math.round(data.main.temp) + "°C";
     document.querySelector(".windSpeed").innerHTML = data.wind.speed + " mph";
     document.querySelector(".humidtyPercentage").innerHTML = data.main.humidity + "%";
   })
@@ -19,6 +19,15 @@ async function checkWeather(location){
 
 checkWeather("London")
 
+window.addEventListener("DOMContentLoaded", (event) => {
+  const searchButton = document.querySelector(".searchbar button");
+  const search = document.querySelector(".searchbar input");
+  if (searchButton) {
+    searchButton.addEventListener("click", ()=>{
+      checkWeather(search.value);
+    })
+  }
+});
 
 
 
