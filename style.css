@@ -65,9 +65,28 @@ input:focus::placeholder {
     cursor: pointer;
 }
 
+.rowA{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.rowA h1{
+    margin: 0 50px;
+}
+
 .icon{
     width: 200px;
-    float: left;
-    
+    height: auto;
 }
+
+.info{ 
+    align-items: center;
+}
+
+.info img{
+    margin: 0 50px;
+}
+
 
