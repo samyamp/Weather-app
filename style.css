@@ -83,7 +83,7 @@ input:focus::placeholder {
 
 .info{ 
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
@@ -100,7 +100,7 @@ input:focus::placeholder {
 }
 
 .info img{
-    margin: 0 30px;
+    margin: 0 80px;
 }
 
 
