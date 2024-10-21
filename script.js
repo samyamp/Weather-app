@@ -8,16 +8,16 @@ async function checkWeather(location){
   })
   .then(data => {
     document.querySelector(".name").innerHTML = data.name;
-    document.querySelector(".temperature").innerHTML= data.main.temp;
-    document.querySelector(".windSpeed").innerHTML = data.wind.speed;
-    document.querySelector(".humidtyPercentage").innerHTML = data.main.humidity;
+    document.querySelector(".temperature").innerHTML= Math.trunc(data.main.temp) + "°C";
+    document.querySelector(".windSpeed").innerHTML = data.wind.speed + " mph";
+    document.querySelector(".humidtyPercentage").innerHTML = data.main.humidity + "%";
   })
   .catch(error => {
     console.error('Error caught:', error);
   });
 }
 
-checkWeather("Sofia")
+checkWeather("London")
 
 
 
