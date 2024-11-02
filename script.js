@@ -4,20 +4,16 @@ const searchButton = document.querySelector(".searchbar button");
 const search = document.querySelector(".searchbar input");
 
 async function get_location() {
+  // Retuens users rough location
   try {
-      // Fetch location data
-      const response = await fetch('http://ip-api.com/json/');
-      const data = await response.json();
-
-      if (data.status === "success") {
-          return data.city;
-      } else {
-          console.error("Error fetching location data");
-      }
+    const response = await fetch("https://ipapi.co/json/");
+    const data = await response.json();
+    return data.city;
   } catch (error) {
-      console.error("Failed to fetch location data:", error);
+    console.log("Error occurred fetching location", error);
   }
 }
+
 
 async function check_weather(location){
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${weatherKey}&units=metric`)
