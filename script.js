@@ -3,7 +3,23 @@ const weatherKey = "05d3648c98ea595a77e6ec3702143b76";
 const searchButton = document.querySelector(".searchbar button");
 const search = document.querySelector(".searchbar input");
 
-async function checkWeather(location){
+async function get_location() {
+  try {
+      // Fetch location data
+      const response = await fetch('http://ip-api.com/json/');
+      const data = await response.json();
+
+      if (data.status === "success") {
+          return data.city;
+      } else {
+          console.error("Error fetching location data");
+      }
+  } catch (error) {
+      console.error("Failed to fetch location data:", error);
+  }
+}
+
+async function check_weather(location){
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${weatherKey}&units=metric`)
   .then(response => {
     return response.json();
@@ -25,75 +41,18 @@ async function checkWeather(location){
     }else if(data.weather[0].main == "Thunderstorm"){
       document.querySelector(".icon").src="icons/thunder.svg"
     }else{
-      console.log("Noithing")
+      console.log("Nothing")
       console.log(data.weather[0].main)
     }
 
-
   })
   .catch(error => {
     console.error('Error caught:', error);
   });
 }
-
-checkWeather("London")
-
 
 searchButton.addEventListener("click", ()=>{
-  checkWeather(search.value);
+  check_weather(search.value);
 })
 
-
-
-
-
-
-/*
-function get_temperature(location) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${weatherKey}&units=metric`)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("get_temperature response not working");
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data.main.temp);
-  })
-  .catch(error => {
-    console.error('Error caught:', error);
-  });
-}
-
-function get_humidity(location) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${weatherKey}&units=metric`)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("get_humidity response not working");
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data.main.humidity);
-  })
-  .catch(error => {
-    console.error('Error caught:', error);
-  });
-}
-
-function get_wind(location) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${weatherKey}&units=imperial`)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("get_wind response not working");
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data.wind.speed);
-  })
-  .catch(error => {
-    console.error('Error caught:', error);
-  });
-}
-*/
+get_location().then(city => check_weather(city))
