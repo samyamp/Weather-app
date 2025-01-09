@@ -31,6 +31,10 @@ input:focus::placeholder {
     
 }
 
+.display{
+    display: none;
+}
+
 .searchbar{
     background: #00ADB5;
     font-family: Inter, sans-serif;;
@@ -79,7 +83,7 @@ input:focus::placeholder {
 .icon{
     width: 200px;
     height: auto;
-    transform: translateX(-23px);
+    transform: translateX(-10px);
 }
 
 .info{ 

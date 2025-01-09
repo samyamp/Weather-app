@@ -2,6 +2,7 @@ const weatherKey = "05d3648c98ea595a77e6ec3702143b76";
 // http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=05d3648c98ea595a77e6ec3702143b76
 const searchButton = document.querySelector(".searchbar button");
 const search = document.querySelector(".searchbar input");
+const weatherMenu = document.querySelector(".display");
 
 async function get_location() {
   // Retuens users rough location
@@ -25,7 +26,6 @@ async function check_weather(location){
     document.querySelector(".temperature").innerHTML= Math.round(data.main.temp) + "°C";
     document.querySelector(".windSpeed").innerHTML = data.wind.speed + " mph";
     document.querySelector(".humidtyPercentage").innerHTML = data.main.humidity + "%";
-    console.log(data.weather[0].main)
     if (data.weather[0].main == "Rain"){
       document.querySelector(".icon").src="icons/rainy-5.svg"
     }else if(data.weather[0].main == "Clouds"){
@@ -40,7 +40,7 @@ async function check_weather(location){
       console.log("Nothing")
       console.log(data.weather[0].main)
     }
-
+    weatherMenu.style.display = 'block';
   })
   .catch(error => {
     console.error('Error caught:', error);
