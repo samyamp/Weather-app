@@ -79,6 +79,7 @@ input:focus::placeholder {
 .icon{
     width: 200px;
     height: auto;
+    transform: translateX(-23px);
 }
 
 .info{ 

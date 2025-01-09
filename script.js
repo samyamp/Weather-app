@@ -3,7 +3,19 @@ const weatherKey = "05d3648c98ea595a77e6ec3702143b76";
 const searchButton = document.querySelector(".searchbar button");
 const search = document.querySelector(".searchbar input");
 
-async function checkWeather(location){
+async function get_location() {
+  // Retuens users rough location
+  try {
+    const response = await fetch("https://ipapi.co/json/");
+    const data = await response.json();
+    return data.city;
+  } catch (error) {
+    console.log("Error occurred fetching location", error);
+  }
+}
+
+
+async function check_weather(location){
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${weatherKey}&units=metric`)
   .then(response => {
     return response.json();
@@ -25,10 +37,9 @@ async function checkWeather(location){
     }else if(data.weather[0].main == "Thunderstorm"){
       document.querySelector(".icon").src="icons/thunder.svg"
     }else{
-      console.log("Noithing")
+      console.log("Nothing")
       console.log(data.weather[0].main)
     }
-
 
   })
   .catch(error => {
@@ -37,6 +48,7 @@ async function checkWeather(location){
 }
 
 searchButton.addEventListener("click", ()=>{
-  checkWeather(search.value);
+  check_weather(search.value);
 })
 
+get_location().then(city => check_weather(city))
